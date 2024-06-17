@@ -1,0 +1,5 @@
+* text=auto
+*ModelSnapshot.cs linguist-generated
+
+# explicitly use LF line endings on all .cs files so that raw string literals are consistent
+*.cs eol=lf
