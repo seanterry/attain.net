@@ -1,15 +1,16 @@
+using Attain;
 using Attain.Components;
 
 var builder = WebApplication.CreateBuilder( args );
 
+// local development services
 if ( builder.Environment.IsDevelopment() )
 {
     builder.Configuration.AddUserSecrets<Program>();
 }
 
-builder.Services.AddRazorComponents();
-
-if ( !builder.Environment.IsDevelopment() )
+// deployed services
+else
 {
     builder.Services.AddHsts( options =>
     {
@@ -18,8 +19,13 @@ if ( !builder.Environment.IsDevelopment() )
     } );
 }
 
+builder.AddAppDbContext();
+
+builder.Services.AddRazorComponents();
+
 var app = builder.Build();
 
+// deployed application settings
 if ( !app.Environment.IsDevelopment() )
 {
     app.UseExceptionHandler( "/Error", createScopeForErrors: true );
@@ -36,4 +42,4 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
 
-app.Run();
+await app.RunAsync();
