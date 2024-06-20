@@ -21,8 +21,6 @@ if ( !app.Environment.IsDevelopment() )
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-
 app.UseStaticFiles( new StaticFileOptions
 {
     // instruct the browser to validate the cached item before re-using it
