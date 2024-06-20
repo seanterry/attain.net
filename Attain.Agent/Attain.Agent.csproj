@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Attain.Agent-f0287080-d4c6-4684-bbfc-6fc49876f518</UserSecretsId>
+    <UserSecretsId>e6a8b72e-28f5-4d61-ba28-e8cfc0a09d22</UserSecretsId>
     <RootNamespace>Attain</RootNamespace>
   </PropertyGroup>
 

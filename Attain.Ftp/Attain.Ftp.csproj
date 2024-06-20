@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Attain.Ftp-4450a663-9965-4e18-aa88-2bfbe2397912</UserSecretsId>
+    <UserSecretsId>e6a8b72e-28f5-4d61-ba28-e8cfc0a09d22</UserSecretsId>
     <RootNamespace>Attain</RootNamespace>
   </PropertyGroup>
 

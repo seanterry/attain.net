@@ -2,6 +2,11 @@ using Attain.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+if ( builder.Environment.IsDevelopment() )
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
+
 builder.Services.AddRazorComponents();
 
 if ( !builder.Environment.IsDevelopment() )

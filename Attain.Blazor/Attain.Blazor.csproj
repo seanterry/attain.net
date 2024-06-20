@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Attain</RootNamespace>
+    <UserSecretsId>e6a8b72e-28f5-4d61-ba28-e8cfc0a09d22</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
