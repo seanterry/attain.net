@@ -21,6 +21,13 @@ else
     } );
 }
 
+builder.Services.Scan( scan => scan
+    .FromAssemblies( typeof(Program).Assembly )
+    .AddClasses( classes => classes.AssignableTo<ITransient>() ).AsSelf().AsImplementedInterfaces().WithTransientLifetime()
+    .AddClasses( classes => classes.AssignableTo<IScoped>() ).AsSelf().AsImplementedInterfaces().WithScopedLifetime()
+    .AddClasses( classes => classes.AssignableTo<ISingleton>() ).AsSelf().AsImplementedInterfaces().WithSingletonLifetime()
+);
+
 builder.AddAppDbContext();
 
 builder.Services.AddRazorComponents();
