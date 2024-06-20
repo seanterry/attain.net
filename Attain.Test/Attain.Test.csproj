@@ -8,6 +8,7 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <RootNamespace>Attain</RootNamespace>
+    <UserSecretsId>bf029d95-05cb-4582-be0d-2eadd8b00451</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

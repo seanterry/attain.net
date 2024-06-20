@@ -3,11 +3,10 @@
 // All Rights Reserved.
 
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 namespace Attain.Model;
 
-public sealed class AppDbContext : DbContext
+public sealed class AppDbContext( DbContextOptions<AppDbContext> options ) : DbContext( options )
 {
 
 }
