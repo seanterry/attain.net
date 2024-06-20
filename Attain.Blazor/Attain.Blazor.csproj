@@ -7,4 +7,8 @@
     <RootNamespace>Attain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Attain.Core\Attain.Core.csproj" />
+  </ItemGroup>
+
 </Project>
