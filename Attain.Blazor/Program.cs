@@ -1,6 +1,6 @@
 using Attain.Components;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder( args );
 
 if ( builder.Environment.IsDevelopment() )
 {
