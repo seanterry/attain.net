@@ -17,7 +17,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
+app.UseStaticFiles( new StaticFileOptions
+{
+    // instruct the browser to validate the cached item before re-using it
+    OnPrepareResponse = ctx => ctx.Context.Response.Headers["Cache-Control"] = "public,no-cache"
+} );
+
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
