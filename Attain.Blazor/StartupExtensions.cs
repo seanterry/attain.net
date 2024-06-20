@@ -2,6 +2,7 @@
 // Copyright (c) TTCO Holding Company, Inc. and Contributors
 // All Rights Reserved.
 
+using Amazon;
 using Attain.Model;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -29,5 +30,14 @@ public static class StartupExtensions
                 pg.MigrationsHistoryTable( "__ef_migrations_history", "my" );
             } );
         } );
+    }
+
+    public static void AddSystemsManagerSecrets( this IHostApplicationBuilder builder )
+    {
+        AWSConfigs.AWSRegion = RegionEndpoint.USWest2.SystemName;
+
+        builder.Configuration
+            .AddSystemsManager( "/attain/my/all/" )
+            .AddSystemsManager( $"/attain/my/{builder.Environment.EnvironmentName}/" );
     }
 }

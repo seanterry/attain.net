@@ -12,6 +12,8 @@ if ( builder.Environment.IsDevelopment() )
 // deployed services
 else
 {
+    builder.AddSystemsManagerSecrets();
+
     builder.Services.AddHsts( options =>
     {
         options.MaxAge = TimeSpan.FromDays( 365 );
