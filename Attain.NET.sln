@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attain.Ftp", "Attain.Ftp\At
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attain.Test", "Attain.Test\Attain.Test.csproj", "{EDBC69B1-0865-4C83-A90B-5160F01E3D0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attain.Agent", "Attain.Agent\Attain.Agent.csproj", "{6E20C870-26C3-4E08-9BDD-7B12C8E284A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,9 @@ Global
 		{EDBC69B1-0865-4C83-A90B-5160F01E3D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDBC69B1-0865-4C83-A90B-5160F01E3D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDBC69B1-0865-4C83-A90B-5160F01E3D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E20C870-26C3-4E08-9BDD-7B12C8E284A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E20C870-26C3-4E08-9BDD-7B12C8E284A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E20C870-26C3-4E08-9BDD-7B12C8E284A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E20C870-26C3-4E08-9BDD-7B12C8E284A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
