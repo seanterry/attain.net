@@ -11,10 +11,12 @@ namespace Attain;
 
 public abstract class TestFixture : IDisposable, IAsyncLifetime
 {
+    static bool initialized;
+    static readonly SemaphoreSlim semaphore = new( 1, 1 );
     static readonly IServiceProvider rootServiceProvider;
     readonly IServiceScope scope = rootServiceProvider.CreateScope();
 
-    protected IServiceProvider ServiceProvider => scope.ServiceProvider;
+    IServiceProvider ServiceProvider => scope.ServiceProvider;
     protected AppDbContext Db => ServiceProvider.GetRequiredService<AppDbContext>();
 
     static TestFixture()
@@ -27,7 +29,26 @@ public abstract class TestFixture : IDisposable, IAsyncLifetime
         rootServiceProvider = host.Services.BuildServiceProvider();
     }
 
-    public virtual Task InitializeAsync() => Task.CompletedTask;
+    public virtual async Task InitializeAsync()
+    {
+        if ( initialized ) return;
+
+        await semaphore.WaitAsync();
+
+        try
+        {
+            if ( !initialized )
+            {
+                await Db.Database.EnsureDeletedAsync();
+                await Db.Database.EnsureCreatedAsync();
+                initialized = true;
+            }
+        }
+        finally
+        {
+            semaphore.Release();
+        }
+    }
 
     public virtual Task DisposeAsync() => Task.CompletedTask;
 
