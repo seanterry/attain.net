@@ -1,6 +1,9 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using Attain.Components.Branding
+@inject BrandContext BrandContext
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Attain</a>
+        <a class="navbar-brand" href="">@BrandContext.Name</a>
     </div>
 </div>
 

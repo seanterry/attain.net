@@ -1,11 +1,13 @@
 using Attain;
 using Attain.Components;
+using Attain.Components.Branding;
 
 var builder = WebApplication.CreateBuilder( args );
 
 // local development services
 if ( builder.Environment.IsDevelopment() )
 {
+    builder.Configuration.AddEnvironmentVariables( "ATTAIN_" );
     builder.Configuration.AddUserSecrets<Program>();
 }
 
@@ -47,6 +49,7 @@ app.UseStaticFiles( new StaticFileOptions
     OnPrepareResponse = ctx => ctx.Context.Response.Headers["Cache-Control"] = "public,no-cache"
 } );
 
+app.UseMiddleware<BrandingMiddleware>();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
