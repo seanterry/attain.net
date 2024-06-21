@@ -23,18 +23,17 @@ else
     } );
 }
 
-builder.Services.Scan( scan => scan
-    .FromAssemblies( typeof(Program).Assembly )
-    .AddClasses( classes => classes.AssignableTo<ITransient>() ).AsSelf().AsImplementedInterfaces().WithTransientLifetime()
-    .AddClasses( classes => classes.AssignableTo<IScoped>() ).AsSelf().AsImplementedInterfaces().WithScopedLifetime()
-    .AddClasses( classes => classes.AssignableTo<ISingleton>() ).AsSelf().AsImplementedInterfaces().WithSingletonLifetime()
-);
+builder.Services.AddConventionalServices();
 
 builder.AddAppDbContext();
 
 builder.Services.AddRazorComponents();
 
 var app = builder.Build();
+
+// allows the application to run under a sub-path
+// directing this sub-path to the application is a load balancer concern
+app.UsePathBase( "/My" );
 
 // deployed application settings
 if ( !app.Environment.IsDevelopment() )

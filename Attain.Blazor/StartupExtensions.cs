@@ -40,4 +40,12 @@ public static class StartupExtensions
             .AddSystemsManager( "/attain/my/all/" )
             .AddSystemsManager( $"/attain/my/{builder.Environment.EnvironmentName}/" );
     }
+
+    public static void AddConventionalServices( this IServiceCollection services ) =>
+        services.Scan( scan => scan
+            .FromAssemblies( typeof(Program).Assembly )
+            .AddClasses( classes => classes.AssignableTo<ITransient>() ).AsSelf().AsImplementedInterfaces().WithTransientLifetime()
+            .AddClasses( classes => classes.AssignableTo<IScoped>() ).AsSelf().AsImplementedInterfaces().WithScopedLifetime()
+            .AddClasses( classes => classes.AssignableTo<ISingleton>() ).AsSelf().AsImplementedInterfaces().WithSingletonLifetime()
+        );
 }
